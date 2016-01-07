@@ -90,6 +90,7 @@ public class IntArrayWorker
            col++)
       {
         if (row < col)
+        
           matrix[row][col] = 1;
         else if (row == col)
           matrix[row][col] = 2;
@@ -98,5 +99,59 @@ public class IntArrayWorker
       }
     }
   }
+  
+
+  /**
+  * returns the count of the number of times a passed int value is found in matrix
+  * @return count of number of times passed int value is found in matrix
+  */
+  public int getCount(int search)
+  {
+    int total = 0;
+    for (int i = 0; i < matrix.length; i++)
+    {
+        for (int j = 0; j < matrix[i].length; j++)
+        {
+            if (matrix[i][j] == search)
+            {
+                total += 1;
+            }
+        }
+    }
+    return total;
+  }
  
-}
+
+  /**
+   * return largest value in matrix
+   */
+ public int getLargest()
+ {
+    int largest = 0;
+    for (int i = 0; i < matrix.length; i++)
+    {
+        for (int j = 0; j < matrix[i].length; j++)
+        {
+            if (matrix[i][j] > largest)
+            {
+                largest = matrix[i][j];
+            }
+        }
+    }
+    return largest;
+ }
+ 
+
+ /**
+ * returns total of all ints in specified column
+ */
+ public int getColTotal(int col)
+ {
+    int total = 0;
+    for (int i = 0; i < matrix[col].length; i++)
+    {
+        total += matrix[i][col];
+    }
+    return total;
+ }
+ }
