@@ -217,6 +217,26 @@ public class Picture extends SimplePicture
     }
   }
   
+  /**
+  * Mirros a picture around a mirror placed vertially right to left
+  */
+  public void mirrorVerticalRightToLeft()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width / 2; col++)
+      {
+        rightPixel = pixels[row][col];
+        leftPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(leftPixel.getColor());
+      }
+    } 
+  }
+
   
   /* Main method for testing - each class in Java can have a main 
    * method 
