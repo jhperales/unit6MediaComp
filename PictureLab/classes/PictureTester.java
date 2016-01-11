@@ -34,7 +34,16 @@ public class PictureTester
       caterpiller.mirrorVerticalRightToLeft();
       caterpiller.explore();
   }
-  /** Method to test mirrorTemple */
+  /** Method to test mirrorHorizontal */
+  public void testMirrorHorizontal()
+  {
+      Picture bike = new Picture("redMotorcycle.jpg");
+      bike.explore();
+      bike.mirrorHorizontal();
+      bike.explore();
+  }
+
+    /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
     Picture temple = new Picture("temple.jpg");
