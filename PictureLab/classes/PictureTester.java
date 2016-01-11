@@ -86,6 +86,7 @@ public class PictureTester
     //testFixUnderwater();
     //testMirrorVertical();
     testMirrorVerticalRightToLeft();
+    testMirrorHorizontal();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();

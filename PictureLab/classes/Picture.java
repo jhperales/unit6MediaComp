@@ -236,6 +236,26 @@ public class Picture extends SimplePicture
       }
     } 
   }
+
+  /**
+  * Mirrors a picture around a mirror placed horizontally top to bottom
+  */
+  public void mirrorHorizontal()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++)
+    {
+      for (int col = 0; col < width; col++)
+      {
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[width - 1 - row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
+  }
 
   
   /* Main method for testing - each class in Java can have a main 
