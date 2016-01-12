@@ -236,29 +236,43 @@ public class Picture extends SimplePicture
       }
     } 
   }
-
+
+
   /**
   * Mirrors a picture around a mirror placed horizontally top to bottom
   */
-  public void mirrorHorizontal()
+  public void mirrorHorizontalTopToBottom()
   {
     Pixel[][] pixels = this.getPixels2D();
-    Pixel topPixel = null;
-    Pixel bottomPixel = null;
     int width = pixels[0].length;
-    for (int row = 0; row < pixels.length; row++)
+    int height = pixels.length;
+    for (int row = 0; row < height/2; row++)
     {
-      for (int col = 0; col < width; col++)
-      {
-        topPixel = pixels[row][col];
-        bottomPixel = pixels[width - 1 - row][col];
-        bottomPixel.setColor(topPixel.getColor());
-      }
+        for (int col = 0; col < width; col++)
+        {
+            pixels[height - 1 -row][col].setColor(pixels[row][col].getColor());
+        }
     }
   }
 
-  
-  /* Main method for testing - each class in Java can have a main 
+  /**
+   * Mirros a picture aorund the mirrior placed horizontally bottom to top
+   */
+  public void mirrorHorizontalBottomToTop()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    int width = pixels[0].length;
+    int height = pixels.length;
+    for (int row = 0; row < height/2; row++)
+    {
+        for (int col = 0; col < width; col++)
+        {
+            pixels[height - 1 - row][col].setColor(pixels[row][col].getColor());
+        }
+    }
+  }
+
+    /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 

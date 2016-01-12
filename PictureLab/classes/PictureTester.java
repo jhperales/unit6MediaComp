@@ -35,11 +35,11 @@ public class PictureTester
       caterpiller.explore();
   }
   /** Method to test mirrorHorizontal */
-  public void testMirrorHorizontal()
+  public static void testMirrorHorizontalTopToBottom()
   {
       Picture bike = new Picture("redMotorcycle.jpg");
       bike.explore();
-      bike.mirrorHorizontal();
+      bike.mirrorHorizontalTopToBottom();
       bike.explore();
   }
 
@@ -86,7 +86,7 @@ public class PictureTester
     //testFixUnderwater();
     //testMirrorVertical();
     testMirrorVerticalRightToLeft();
-    testMirrorHorizontal();
+    testMirrorHorizontalTopToBottom();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
