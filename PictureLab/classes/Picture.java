@@ -97,7 +97,8 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+  
+
   /**
    * Method that keeps all blue values and sets red and green values to 0
    */
@@ -113,7 +114,8 @@ public class Picture extends SimplePicture
       }
     }
   }
-
+
+
   /**
    * <Ethod that negates all colors
    */
@@ -132,6 +134,24 @@ public class Picture extends SimplePicture
   }
 
   /**
+   * Copies a region of the spcified source Picture object into this picture object at the 
+   * specified location
+   */
+  public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, 
+             int startSourceCol, int endSourceCol, int startDestRow, int startDestCol )
+  {
+      Picture source = sourcePicture;
+      
+      int source_beginRow = startSourceRow;
+      int source_endRow = endSourceRow;
+      int source_beginCol = startSourceCol;
+      int source_endCol = endSourceCol;
+      
+      
+  }
+
+
+  /**
    * MEthod that applies a greyscale (set color values to averages of prior values)
    */
   public void grayscale()
@@ -142,9 +162,13 @@ public class Picture extends SimplePicture
       for (Pixel pixelObj : rowArray)
       {
         int red = pixelObj.getRed();
-        int green = pixelObj.getgreen();
-        int blue = pixelObj.getblue();
+        int green = pixelObj.getGreen();
+        int blue = pixelObj.getBlue();
         int average = (red + green + blue) / 3;
+        
+        pixelObj.setRed(average);
+        pixelObj.setGreen(average);
+        pixelObj.setBlue(average);
         
       }
     }

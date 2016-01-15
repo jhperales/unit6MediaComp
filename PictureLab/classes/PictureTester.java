@@ -16,7 +16,8 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
-  
+  
+
   /** method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
@@ -25,13 +26,23 @@ public class PictureTester
       beach.keepOnlyBlue();
       beach.explore();
   }
-
+
+
   /** Method to test negate */
   public static void testNegate()
   {
      Picture beach = new Picture("beach.jpg");
      beach.explore();
      beach.negate();
+     beach.explore();
+  }
+  
+  /** Method to test grayscale */
+  public static void testGrayscale()
+  {
+     Picture beach = new Picture("beach.jpg");
+     beach.explore();
+     beach.grayscale();
      beach.explore();
   }
 
@@ -98,6 +109,7 @@ public class PictureTester
     testZeroBlue();
     testKeepOnlyBlue();
     testNegate();
+    testGrayscale();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
