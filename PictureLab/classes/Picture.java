@@ -132,7 +132,8 @@ public class Picture extends SimplePicture
       }
     }
   }
-
+
+
   /**
    * Copies a region of the spcified source Picture object into this picture object at the 
    * specified location
