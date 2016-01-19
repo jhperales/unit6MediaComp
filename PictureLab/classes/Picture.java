@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
-
 /**
  * A class that represents a picture.  This class inherits from 
  * SimplePicture and allows the student to add functionality to
@@ -142,15 +141,16 @@ public class Picture extends SimplePicture
              int startSourceCol, int endSourceCol, int startDestRow, int startDestCol )
   {
       Picture source = sourcePicture;
-      
       int source_beginRow = startSourceRow;
       int source_endRow = endSourceRow;
       int source_beginCol = startSourceCol;
       int source_endCol = endSourceCol;
-      
-      
-  }
-
+      Pixel[][] source_pixels = source.getPixels2D(); 
+      for (int i = source_beginRow; i < source_endRow; i++)
+      {
+          for (int j = source_beginCol; j < source_endCol; j++)
+          {
+              
 
   /**
    * MEthod that applies a greyscale (set color values to averages of prior values)
