@@ -97,6 +97,15 @@ public class PictureTester
     swan.explore();
   }
   
+  /** Method to test crop and copy */
+  public static void testCropAndCopy()
+  {
+      Picture beach = new Picture("beach.jpg");
+      Picture copy_from = new Picture("caterpillar.jpg");
+      beach.explore();
+      beach.cropAndCopy(copy_from, 5, 10, 0, 10, 3, 3);
+      beach.explore();
+  }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)

@@ -141,16 +141,17 @@ public class Picture extends SimplePicture
              int startSourceCol, int endSourceCol, int startDestRow, int startDestCol )
   {
       Picture source = sourcePicture;
-      int source_beginRow = startSourceRow;
-      int source_endRow = endSourceRow;
-      int source_beginCol = startSourceCol;
-      int source_endCol = endSourceCol;
       Pixel[][] source_pixels = source.getPixels2D(); 
-      for (int i = source_beginRow; i < source_endRow; i++)
+      Pixel[][] dest_pixels = this.getPixels2D();
+      for (int i = startSourceRow; i <= endSourceRow; i++)
       {
-          for (int j = source_beginCol; j < source_endCol; j++)
+          for (int j = startSourceCol; j <= endSourceRow; j++)
           {
-              
+              Color source_color = source_pixels[i][j].getColor();
+              dest_pixels[i - startSourceRow + startDestRow][j - startSourceCol + startDestCol].setColor(source_color);
+          }
+      }
+  }
 
   /**
    * MEthod that applies a greyscale (set color values to averages of prior values)
