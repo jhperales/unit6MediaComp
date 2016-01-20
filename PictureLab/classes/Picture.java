@@ -140,8 +140,7 @@ public class Picture extends SimplePicture
   public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, 
              int startSourceCol, int endSourceCol, int startDestRow, int startDestCol )
   {
-      Picture source = sourcePicture;
-      Pixel[][] source_pixels = source.getPixels2D(); 
+      Pixel[][] source_pixels = sourcePict.getPixels2D(); 
       Pixel[][] dest_pixels = this.getPixels2D();
       for (int i = startSourceRow; i <= endSourceRow; i++)
       {
@@ -254,18 +253,7 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
-    this.copy(flower1,0,0);
-    this.copy(flower2,100,0);
-    this.copy(flower1,200,0);
-    Picture flowerNoBlue = new Picture(flower2);
-    flowerNoBlue.zeroBlue();
-    this.copy(flowerNoBlue,300,0);
-    this.copy(flower1,400,0);
-    this.copy(flower2,500,0);
-    this.mirrorVertical();
-    this.write("collage.jpg");
+    
   }
   
   
