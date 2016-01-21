@@ -140,7 +140,7 @@ public class Picture extends SimplePicture
   public void cropAndCopy( Picture sourcePicture, int startSourceRow, int endSourceRow, 
              int startSourceCol, int endSourceCol, int startDestRow, int startDestCol )
   {
-      Pixel[][] source_pixels = sourcePict.getPixels2D(); 
+      Pixel[][] source_pixels = sourcePicture.getPixels2D(); 
       Pixel[][] dest_pixels = this.getPixels2D();
       for (int i = startSourceRow; i <= endSourceRow; i++)
       {
@@ -253,7 +253,29 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    
+     Picture canvas = new Picture(1700, 1620);
+     Picture original = new Picture("collage_base.jpg");
+     canvas.copy(original, 0, 0);
+     
+     Picture negate = new Picture("collage_base.jpg");
+     negate.negate();
+     canvas.copy(negate, 0, 405);
+     
+     Picture mirrorHorizontal_negate = new Picture(negate);
+     mirrorHorizontal_negate.mirrorHorizontalTopToBottom();
+     canvas.copy(mirrorHorizontal_negate, 0, 810);
+     
+     Picture grayscale_negative_mirrorHorizontal = new Picture(mirrorHorizontal_negate);
+     grayscale_negative_mirrorHorizontal.grayscale();
+     canvas.copy(grayscale_negative_mirrorHorizontal, 0, 1215);
+     
+     Picture grayscale_mirrorVertical = new Picture(original);
+     grayscale_mirrorVertical.grayscale();
+     grayscale_mirrorVertical.mirrorVertical();
+     canvas.copy(grayscale_mirrorVertical, 600, 0);
+     
+     Picture grayscale_mirrorVert_mirrorHoriTopBottom = new Picture(grayscale_mirrorVertical);
+     canvas.explore();
   }
   
   
