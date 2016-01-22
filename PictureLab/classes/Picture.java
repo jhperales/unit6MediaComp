@@ -275,7 +275,38 @@ public class Picture extends SimplePicture
      canvas.copy(grayscale_mirrorVertical, 600, 0);
      
      Picture grayscale_mirrorVert_mirrorHoriTopBottom = new Picture(grayscale_mirrorVertical);
+     grayscale_mirrorVert_mirrorHoriTopBottom.mirrorHorizontalTopToBottom();
+     canvas.copy(grayscale_mirrorVert_mirrorHoriTopBottom, 600, 405);
+     
+     Picture zero_blue = new Picture(original);
+     zero_blue.zeroBlue();
+     canvas.copy(zero_blue, 600, 810);
+     
+     Picture zeroblue_negate = new Picture(zero_blue);
+     zeroblue_negate.negate();
+     canvas.copy(zeroblue_negate, 600, 1215);
+     
+     Picture keepblue = new Picture(original);
+     keepblue.keepOnlyBlue();
+     canvas.copy(keepblue, 1200, 0);
+     
+     Picture keepblue_grayscale = new Picture(keepblue);
+     keepblue_grayscale.grayscale();
+     canvas.copy(keepblue_grayscale, 1200, 405);
+     
+     Picture keepblue_grayscale_zeroblue = new Picture(keepblue_grayscale);
+     keepblue_grayscale_zeroblue.zeroBlue();
+     canvas.copy(keepblue_grayscale_zeroblue, 1200, 810);
+     
+     Picture edgedetect = new Picture(original);
+     edgedetect.edgeDetection(15);
+     canvas.copy(edgedetect , 1200, 1215);
+     
+     String filePath = canvas.getMediaPath("collage.jpg");
+     canvas.write(filePath);
+     
      canvas.explore();
+     
   }
   
   
